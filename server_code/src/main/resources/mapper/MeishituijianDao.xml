@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cl.dao.MeishituijianDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.cl.entity.MeishituijianEntity" id="meishituijianMap">
+        <result property="meishimingcheng" column="meishimingcheng"/>
+        <result property="meishitupian" column="meishitupian"/>
+        <result property="tuijianzhishu" column="tuijianzhishu"/>
+        <result property="meishijiage" column="meishijiage"/>
+        <result property="dakadidian" column="dakadidian"/>
+        <result property="meishijieshao" column="meishijieshao"/>
+    </resultMap>
+
+    <select id="selectListView"
+		resultType="com.cl.entity.view.MeishituijianView" >
+
+		SELECT  meishituijian.* FROM meishituijian  meishituijian 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.cl.entity.view.MeishituijianView" >
+		SELECT * FROM meishituijian  meishituijian <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+</mapper>
